@@ -1,4 +1,5 @@
 Laporan Singkat Workflow KNIME
+## Richie C14250090 & David C14250084
 Workflow ini dibuat untuk melakukan preprocessing data, analisis visual, serta pembuatan model machine learning berbasis Decision Tree. Tahapan yang dilakukan adalah sebagai berikut:
 
 # 1. CSV Reader
