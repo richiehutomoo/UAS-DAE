@@ -112,6 +112,8 @@ Perbandingan rata-rata HP berdasarkan kapasitas mesin (CC).
 
 <img src="https://github.com/richiehutomoo/UAS-DAE/blob/main/CC%20VS%20MEAN%20HP.png" width="700" height="400">
 
+Dari chart tersebut dapat dilihat bahwa pada 1800 CC memiliki rata-rata tenaga HP yang paling besar.
+
 ---
 
 ## b. Harga rata-rata mobil Corolla (1998–2004)
@@ -121,6 +123,8 @@ Tren harga rata-rata per tahun menggunakan Line Plot / Bar Chart.
 
 <img src="https://github.com/richiehutomoo/UAS-DAE/blob/52fbbc3936d7c372c75f3dc1db571cb18b67b695/Harga%20rata-rata%20mobil%20Corolla%20dari%20tahun%201998-2004.png" width="700" height="400">
 
+Dari chart tersebut dapat dilihat bahwa semakin tahun terjadi peningkatan harga.
+
 ---
 
 ## c. Tahun vs Rata-rata tenaga HP 
@@ -128,6 +132,8 @@ Tren harga rata-rata per tahun menggunakan Line Plot / Bar Chart.
 **Visualisasi:**
 
 <img src="https://github.com/richiehutomoo/UAS-DAE/blob/85b6fb9d0eaa0c6518297f39949e462377275981/Line%20Plot.png" width="700" height="400">
+
+Dari plot tersebut dapat dilihat bahwa pada tahun 2000 memiliki kapasitas rata-rata tenaga HP terbesar.
 
 ---
 
