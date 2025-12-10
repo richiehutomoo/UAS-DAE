@@ -123,8 +123,7 @@ Tren harga rata-rata per tahun menggunakan Line Plot / Bar Chart.
 
 ---
 
-## c. Tahun vs Rata-rata HP  
-Slot untuk chart ketiga.
+## c. Tahun vs Rata-rata tenaga HP 
 
 **Visualisasi:**
 
