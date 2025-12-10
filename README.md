@@ -1,44 +1,59 @@
-Laporan Singkat Workflow KNIME
-# Richie C14250090 & David C14250084
-Workflow ini dibuat untuk melakukan preprocessing data, analisis visual, serta pembuatan model machine learning berbasis Decision Tree. Tahapan yang dilakukan adalah sebagai berikut:
+# Laporan Singkat Workflow KNIME
+## Richie C14250090 & David C14250084
+
+Workflow ini dibuat untuk melakukan preprocessing data, analisis visual, perbandingan antar variabel, serta pembuatan model machine learning berbasis Decision Tree. Tahapan yang dilakukan adalah sebagai berikut:
+
+---
 
 ## 1. CSV Reader
-Dataset diimpor menggunakan node CSV Reader untuk membaca file berformat .csv sebagai sumber data awal. Node ini digunakan untuk mengambil data mentah dari file CSV ToyotaCorolla.
-Outputnya berupa tabel yang akan digunakan untuk seluruh proses berikutnya.
+Dataset diimpor menggunakan node CSV Reader untuk membaca file berformat `.csv` sebagai sumber data awal.
+Output: tabel mentah yang digunakan sebagai input workflow.
+
+---
 
 ## 2. Column Filter
-Node ini digunakan untuk memilih kolom-kolom yang diperlukan dan menghapus kolom yang tidak relevan sehingga data lebih fokus dan efisien diproses.
-
-Digunakan untuk memilih kolom yang diperlukan saja, yaitu:
-
+Memilih kolom yang diperlukan dan menghapus kolom tidak relevan.
+Kolom yang dipilih:
 - Tahun
-
 - Harga
+- CC
+- HP
 
-Tujuannya agar workflow fokus pada variabel yang relevan.
+Tujuan: fokus pada variabel penting.
+
+---
 
 ## 3. Row Filter
-Baris data di filter berdasarkan kondisi tertentu untuk menyaring data sesuai kebutuhan analisis, yaitu memfilter data harga dari tahun 1998 - 2004.
+Memfilter baris berdasarkan kondisi tertentu, yaitu tahun 1998–2004.
+
+---
 
 ## 4. GroupBy
-Data dikelompokkan berdasarkan kolom tertentu dan dilakukan agregasi seperti menghitung rata-rata, jumlah, atau nilai maksimum.
+Mengelompokkan data berdasarkan Tahun dan menghitung:
+- Rata-rata harga per tahun
+- Rata-rata HP per CC
+- Rata-rata HP per tahun
 
-Karena dalam satu tahun terdapat banyak harga, node ini menghitung:
+Output: satu baris per tahun dan per CC.
 
-Average (mean) harga per tahun
-
-Hasilnya: satu baris per tahun, dengan harga rata-rata.
+---
 
 ## 5. Column Renamer
-Nama kolom diperbaiki agar lebih jelas, konsisten, dan mudah dipahami.
+Memperjelas nama kolom agar lebih konsisten.
 
-## 6. Visualisasi Data (Table, Bar Chart, Line Plot)
-Table View digunakan untuk melihat data secara detail.
-Bar Chart menampilkan distribusi data secara visual untuk mempermudah interpretasi.
-Line Plot digunakan untuk melihat pola atau tren berdasarkan urutan data.
+---
+
+## 6. Visualisasi Data
+Menggunakan:
+- Table View
+- Bar Chart
+- Line Plot  
+Untuk melihat pola, distribusi, dan tren harga mobil.
+
+---
 
 ## 7. Rule Engine
-Node ini digunakan untuk membuat kolom baru berdasarkan aturan logika tertentu, seperti klasifikasi threshold, pemberian kategori, atau label awal untuk model.
+Membuat kategori harga:
 
 Harga rata-rata <= 10000 => "Murah"
 
@@ -46,75 +61,174 @@ Harga rata-rata <= 15000 => "Sedang"
 
 TRUE => "Mahal"
 
+
+---
+
 ## 8. Table Partitioner
-Dataset dibagi menjadi training set dan testing set untuk keperluan pemodelan machine learning.
+Membagi dataset menjadi:
+- 70% Training Set
+- 30% Testing Set
 
-Digunakan untuk membagi data menjadi dua bagian:
-
-- Training set (misal 70%) → untuk melatih model
-
-- Testing set (misal 30%) → untuk mengevaluasi model
-
-Hasilnya muncul sebagai First Partition & Second Partition.
+---
 
 ## 9. Number to String
-Digunakan untuk mengubah tipe data numerik menjadi string apabila kolom tersebut seharusnya diperlakukan sebagai kategori atau label.
+Konversi tipe data numerik menjadi string untuk label klasifikasi.
+
+---
 
 ## 10. Decision Tree Learner
-Node ini melatih model Decision Tree berdasarkan data training.
+Melatih model berdasarkan:
+- Input: Tahun
+- Output: Harga rata-rata
 
-Tujuannya untuk mempelajari pola hubungan antara:
-
-- Input → Tahun
-
-- Output → Harga rata-rata
-
-Model ini membuat pohon keputusan untuk prediksi selanjutnya.
+---
 
 ## 11. Decision Tree Predictor
-Model yang sudah dilatih diterapkan pada data testing untuk menghasilkan prediksi.
+Memprediksi harga berdasarkan model.
 
-Node ini menggunakan model Decision Tree untuk memprediksi harga berdasarkan data pada testing set.
+Output:
+- Predicted value
+- Confidence (opsional)
 
-- Output:
-
-Predicted value
-
-(Kadang) confidence/probability
-
-Node ini hanya memberikan prediksi, belum menghitung akurasi
+---
 
 ## 12. Scorer
-Evaluasi performa model dilakukan menggunakan Scorer untuk memperoleh metrik seperti confusion matrix dan akurasi.
+Evaluasi model dengan:
+- Confusion Matrix
+- Akurasi prediksi
 
-Node ini membandingkan:
+---
 
-- Predicted value (hasil model)
+# 13. Comparison & Visualisasi Tambahan
 
-- Actual value (harga asli)
+## a. CC vs Mean HP
+Perbandingan rata-rata HP berdasarkan kapasitas mesin (CC).
 
-- Output yang dihasilkan:
+**Visualisasi:**
 
-Confusion Matrix (untuk klasifikasi)
+<img src="C:\Users\User\CC VS MEAN HP.png" width="700" height="400">
 
-- Nilai benar / salah
+---
 
-- Performa prediksi
+## b. Harga rata-rata mobil Corolla (1998–2004)
+Tren harga rata-rata per tahun menggunakan Line Plot / Bar Chart.
 
-## INSIGHT
-- Harga mobil berubah cukup jelas dari tahun ke tahun.
-  
-- Rata-rata harga per tahun menunjukkan pola tren tertentu.  
+**Visualisasi:**
 
-- Tahun produksi adalah faktor paling berpengaruh dalam model.  
+*(upload grafik ke folder repo dan ganti path ini)*  
+`![Harga rata-rata](images/harga_rerata_1998_2004.png)`
 
-- Model hanya bisa menangkap tren umum, bukan nilai harga detail.  
+---
 
-## INTERPRETASI
-- Tahun bisa digunakan untuk membaca pola kenaikan/penurunan harga.  
+## c. Tahun vs Rata-rata HP  
+Slot untuk chart ketiga.
 
-- Namun tahun saja tidak cukup untuk memprediksi harga secara akurat karena harga mobil dipengaruhi juga oleh faktor lain (km, kondisi, mesin, fitur).  
+**Visualisasi (silakan upload chart):**
 
-- Model decision tree sederhana cocok untuk analisis tren, tetapi kurang kuat untuk prediksi harga presisi.  
+`![Rata-rata HP per Tahun](images/hp_per_tahun.png)`
 
+---
 
+# INSIGHT
+- Harga mobil berubah cukup signifikan per tahun.
+- Rata-rata harga menunjukkan tren naik dari 1998–2004.
+- HP dan CC menunjukkan hubungan kuat.
+- Tahun produksi memengaruhi performa (HP) dan harga.
+- Decision Tree menangkap tren, bukan prediksi detail.
+
+---
+
+# INTERPRETASI
+- Tahun bisa digunakan untuk membaca pola harga, namun tidak cukup untuk prediksi akurat.
+- Faktor lain seperti kilometer, kondisi, dan fitur sangat berpengaruh.
+- Comparison analysis memberi pemahaman mendalam terhadap hubungan antar variabel.
+- Decision Tree cocok untuk insight sederhana namun kurang presisi untuk prediksi harga real.
+
+---
+
+# Struktur Folder (Rekomendasi)
+
+---
+
+## 8. Table Partitioner
+Membagi dataset menjadi:
+- 70% Training Set
+- 30% Testing Set
+
+---
+
+## 9. Number to String
+Konversi tipe data numerik menjadi string untuk label klasifikasi.
+
+---
+
+## 10. Decision Tree Learner
+Melatih model berdasarkan:
+- Input: Tahun
+- Output: Harga rata-rata
+
+---
+
+## 11. Decision Tree Predictor
+Memprediksi harga berdasarkan model.
+
+Output:
+- Predicted value
+- Confidence (opsional)
+
+---
+
+## 12. Scorer
+Evaluasi model dengan:
+- Confusion Matrix
+- Akurasi prediksi
+
+---
+
+# 13. Comparison & Visualisasi Tambahan
+
+## a. CC vs Mean HP
+Perbandingan rata-rata HP berdasarkan kapasitas mesin (CC).
+
+**Visualisasi:**
+
+*(upload gambar ke folder repo dan ganti path ini)*  
+`![CC vs Mean HP](images/cc_vs_hp.png)`
+
+---
+
+## b. Harga rata-rata mobil Corolla (1998–2004)
+Tren harga rata-rata per tahun menggunakan Line Plot / Bar Chart.
+
+**Visualisasi:**
+
+*(upload grafik ke folder repo dan ganti path ini)*  
+`![Harga rata-rata](images/harga_rerata_1998_2004.png)`
+
+---
+
+## c. Tahun vs Rata-rata HP  
+Slot untuk chart ketiga.
+
+**Visualisasi (silakan upload chart):**
+
+`![Rata-rata HP per Tahun](images/hp_per_tahun.png)`
+
+---
+
+# INSIGHT
+- Harga mobil berubah cukup signifikan per tahun.
+- Rata-rata harga menunjukkan tren naik dari 1998–2004.
+- HP dan CC menunjukkan hubungan kuat.
+- Tahun produksi memengaruhi performa (HP) dan harga.
+- Decision Tree menangkap tren, bukan prediksi detail.
+
+---
+
+# INTERPRETASI
+- Tahun bisa digunakan untuk membaca pola harga, namun tidak cukup untuk prediksi akurat.
+- Faktor lain seperti kilometer, kondisi, dan fitur sangat berpengaruh.
+- Comparison analysis memberi pemahaman mendalam terhadap hubungan antar variabel.
+- Decision Tree cocok untuk insight sederhana namun kurang presisi untuk prediksi harga real.
+
+---
