@@ -106,7 +106,7 @@ Perbandingan rata-rata HP berdasarkan kapasitas mesin (CC).
 
 **Visualisasi:**
 
-<img src="C:\Users\User\CC VS MEAN HP.png" width="700" height="400">
+<img src="https://github.com/richiehutomoo/UAS-DAE/blob/main/CC%20VS%20MEAN%20HP.png" width="700" height="400">
 
 ---
 
