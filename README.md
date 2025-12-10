@@ -137,6 +137,16 @@ Dari plot tersebut dapat dilihat bahwa pada tahun 2000 memiliki kapasitas rata-r
 
 ---
 
+## d. Klasifikasi tahun terhadap harga rata-rata Toyota Corolla berdasarkan kategori
+
+**Visualisasi:**
+
+<img src="https://github.com/richiehutomoo/UAS-DAE/blob/50e4389501a08debe32da10caa5f5dd7130a3511/Klasifikasi%20harga%20rata-rata%20sesuai%20kategori.png" width="700" height="400">
+
+Dari chart tersebut dapat disimpulkan bahwa pada tahun 1998-1999 memiliki harga rata-rata dengan kategori murah, tahun 2000-2001 memiliki harga rata-rata dengan kategori sedang, pada thaun 2002-2004 memiliki kategori harga rata-rata mahal, sehingga harga akan semakin meningkat seiring majunya perkembangan zaman dan begitupun sebaliknya.
+
+---
+
 # INSIGHT
 - Harga mobil berubah cukup signifikan per tahun.
 - Rata-rata harga menunjukkan tren naik dari 1998–2004.
