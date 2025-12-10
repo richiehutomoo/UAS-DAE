@@ -47,7 +47,7 @@ Year -> Tahun
 
 ## 6. Visualisasi Data
 Menggunakan:
-- Pie Chart (visualisasi CC terhadap rata-rata HP)
+- Pie Chart (visualisasi CC terhadap rata-rata HP, visualisasi kategori harga rata-rata terhadap tahun)
 - Bar Chart (visualisasi tahun terhadap harga rata-rata)
 - Line Plot (visualisasi tahun terhadap rata-rata tenaga HP)
 Untuk melihat pola, distribusi, dan tren harga mobil.
