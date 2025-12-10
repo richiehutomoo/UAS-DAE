@@ -114,9 +114,7 @@ Perbandingan rata-rata HP berdasarkan kapasitas mesin (CC).
 Tren harga rata-rata per tahun menggunakan Line Plot / Bar Chart.
 
 **Visualisasi:**
-
-*(upload grafik ke folder repo dan ganti path ini)*  
-`![Harga rata-rata](images/harga_rerata_1998_2004.png)`
+<img src="https://github.com/richiehutomoo/UAS-DAE/blob/52fbbc3936d7c372c75f3dc1db571cb18b67b695/Harga%20rata-rata%20mobil%20Corolla%20dari%20tahun%201998-2004.png" width="700" height="400">
 
 ---
 
@@ -125,7 +123,7 @@ Slot untuk chart ketiga.
 
 **Visualisasi (silakan upload chart):**
 
-`![Rata-rata HP per Tahun](images/hp_per_tahun.png)`
+<img src="" width="700" height="400">
 
 ---
 
